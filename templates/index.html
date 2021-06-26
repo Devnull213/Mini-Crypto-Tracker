@@ -13,52 +13,64 @@
     />
   </head>
   <body>
-    <div class="card border mb-3 mx-auto rounded" style="width: 30%">
-      <div class="card-body text-center">
-        <div class="card-header">
-          <h1 class="card-title">
-            <img
-              src="../static/bitcoin-btc-logo.png"
-              alt="bitcoin-logo"
-              width="35"
-              height="35"
-            />
-            Crypto Tracker
-            <img
-              src="../static/ethereum-eth-logo.png"
-              alt="bitcoin-logo"
-              width="35"
-              height="35"
-            />
-          </h1>
-          <br />
-          <form action="{{ url_for('get_query') }}" method="post">
-            <input type="text" name="coin" placeholder="Search Crypto" />
-            <button type="submit" class="btn btn-primary">Search</button>
-          </form>
-        </div>
-        {% block body %}
-        <div class="list-group list-group-flush">
-          <h2 class="list-group-item">
-            Name: <span id="name">{{ response.name }}</span>
-          </h2>
-          <h2 class="list-group-item">
-            Price: $<span id="price" onchange="change()">{{
-              response.quotes.USD.price
-            }}</span>
-          </h2>
-          <h2 class="list-group-item">
-            24h %:
-            <span id="day-percent-change">{{
-              response.quotes.USD.percent_change_24h
-            }}</span
-            >%
-          </h2>
-          <h2 class="list-group-item">
-            Market cap: $<span id="market-cap">{{
-              response.quotes.USD.market_cap
-            }}</span>
-          </h2>
+    <div class="container">
+      <div class="row">
+        <div
+          class="
+            card
+            border
+            mb-3
+            mx-auto
+            rounded
+            col-12 col-sm-10 col-md-10 col-lg-8 col-xl-6
+            bg-dark
+          "
+        >
+          <div class="card-body text-center">
+            <div class="card-header">
+              <h1 class="card-title text-white">
+                <img
+                  src="../static/bitcoin-btc-logo.png"
+                  alt="bitcoin-logo"
+                  width="35"
+                  height="35"
+                />
+                Crypto Tracker
+                <img
+                  src="../static/ethereum-eth-logo.png"
+                  alt="bitcoin-logo"
+                  width="35"
+                  height="35"
+                />
+              </h1>
+              <br />
+              <form action="{{ url_for('get_query') }}" method="post">
+                <input type="text" name="coin" placeholder="Search Crypto" />
+                <button type="submit" class="btn btn-primary">Search</button>
+              </form>
+            </div>
+            {% block body %}
+            <div class="list-group list-group-flush">
+              <h2 class="list-group-item">
+                Name: <span id="name">{{ response.name }}</span>
+              </h2>
+              <h2 class="list-group-item">
+                Price: $<span id="price">{{ response.quotes.USD.price }}</span>
+              </h2>
+              <h2 class="list-group-item">
+                24h:
+                <span id="day-percent-change">{{
+                  response.quotes.USD.percent_change_24h
+                }}</span
+                >%
+              </h2>
+              <h2 class="list-group-item">
+                Market cap: $<span id="market-cap">{{
+                  response.quotes.USD.market_cap
+                }}</span>
+              </h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -8,6 +8,9 @@ const price = document.querySelector('#price');
 const marketCap = document.querySelector('#market-cap');
 const dayPercentChange = document.querySelector('#day-percent-change');
 
+const percentChange = () => {
+    dayPercentChange.innerText < 0 ? dayPercentChange.className += 'text-danger' : dayPercentChange.className += 'text-success' ;
+}
 
 socket.on('update', response => {
 
@@ -16,9 +19,13 @@ socket.on('update', response => {
     dayPercentChange.innerText = response['quotes']['USD']['percent_change_24h'];
     coinName.innerText = response['name'];
 
+
     console.log(response['quotes']['USD']['price'])
 
 });
+
+percentChange();
+
 
 })();
 
