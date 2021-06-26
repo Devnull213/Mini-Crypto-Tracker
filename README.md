@@ -20,6 +20,7 @@ source  /venv/bin/activate
 3. Install the dependencies
 
 ```
+cd Mini-Crypto-Tracker
 pip install -r requirements.txt
 ```
 
@@ -39,3 +40,4 @@ http://localhost:5000
 
 - [Flask](https://flask.palletsprojects.com)
 - [Socket.io](https://socket.io/)
+- [Bootstrap](https://getbootstrap.com/)
